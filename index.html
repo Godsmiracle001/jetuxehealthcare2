@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Jetuxe Healthcare</title>
+		<script src="https://cdn.tailwindcss.com"></script>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+		/>
+		<style>
+			/* Additional Styles */
+			.slider-container {
+				display: flex;
+				overflow-x: auto;
+				scroll-behavior: smooth;
+			}
+			.slider-item {
+				flex: 0 0 auto;
+				margin-right: 1rem;
+			}
+			.slider-container::-webkit-scrollbar {
+				display: none;
+			}
+			.dropdown:hover .dropdown-menu {
+				display: block;
+			}
+			.hidden-menu {
+				display: none;
+			}
+			@media (max-width: 768px) {
+				.hidden-menu {
+					display: block;
+				}
+				nav.md\:flex {
+					display: none;
+				}
+			}
+		</style>
+		<script>
+			// Dark mode toggle
+			function toggleDarkMode() {
+				const root = document.documentElement;
+				if (root.classList.contains("dark")) {
+					root.classList.remove("dark");
+					localStorage.setItem("theme", "light");
+				} else {
+					root.classList.add("dark");
+					localStorage.setItem("theme", "dark");
+				}
+			}
+
+			// Set initial theme based on localStorage
+			document.addEventListener("DOMContentLoaded", () => {
+				if (localStorage.getItem("theme") === "dark") {
+					document.documentElement.classList.add("dark");
+				}
+			});
+		</script>
+	</head>
+	<body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100">
+		<!-- Header -->
+		<header class="bg-blue-600 dark:bg-gray-800 text-white">
+			<div
+				class="container mx-auto px-4 py-4 flex justify-between items-center"
+			>
+				<h1 class="text-2xl font-bold">Jetuxe Healthcare</h1>
+				<nav class="hidden md:flex space-x-6">
+					<div class="relative group">
+						<a href="#" class="hover:underline">Home</a>
+					</div>
+					<div class="relative group">
+						<a href="#" class="hover:underline">About Us</a>
+						<ul
+							class="absolute left-0 mt-2 hidden bg-white dark:bg-gray-700 text-black dark:text-white group-hover:block shadow-lg"
+						>
+							<li>
+								<a
+									href="#vision"
+									class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800"
+									>Vision</a
+								>
+							</li>
+							<li>
+								<a
+									href="#mission"
+									class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800"
+									>Mission</a
+								>
+							</li>
+							<li>
+								<a
+									href="#values"
+									class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800"
+									>Corporate Values</a
+								>
+							</li>
+						</ul>
+					</div>
+					<div class="relative group">
+						<a href="#" class="hover:underline">Products</a>
+						<ul
+							class="absolute left-0 mt-2 hidden bg-white dark:bg-gray-700 text-black dark:text-white group-hover:block shadow-lg"
+						>
+							<li>
+								<a
+									href="#product1"
+									class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800"
+									>Product 1</a
+								>
+							</li>
+							<li>
+								<a
+									href="#product2"
+									class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800"
+									>Product 2</a
+								>
+							</li>
+							<li>
+								<a
+									href="#product3"
+									class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800"
+									>Product 3</a
+								>
+							</li>
+						</ul>
+					</div>
+					<div class="relative group">
+						<a href="#services" class="hover:underline">Services</a>
+					</div>
+					<div class="relative group">
+						<a href="#news" class="hover:underline">News</a>
+					</div>
+					<div class="relative group">
+						<a href="#contact" class="hover:underline"
+							>Contact Us</a
+						>
+					</div>
+				</nav>
+				<button
+					onclick="toggleDarkMode()"
+					class="p-2 bg-gray-200 dark:bg-gray-600 rounded-full"
+				>
+					<i class="fas fa-moon"></i>
+				</button>
+			</div>
+			<div class="block md:hidden">
+				<button
+					class="p-2 bg-gray-200 dark:bg-gray-600 rounded-full"
+					onclick="document.getElementById('mobile-menu').classList.toggle('hidden')"
+				>
+					<i class="fas fa-bars"></i>
+				</button>
+			</div>
+			<div
+				id="mobile-menu"
+				class="hidden md:hidden bg-white dark:bg-gray-700"
+			>
+				<ul class="space-y-2 py-2">
+					<li>
+						<a
+							href="#"
+							class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800"
+							>Home</a
+						>
+					</li>
+					<li class="relative">
+						<a
+							href="#"
+							class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800"
+							>About Us</a
+						>
+						<ul class="pl-4">
+							<li>
+								<a
+									href="#vision"
+									class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800"
+									>Vision</a
+								>
+							</li>
+							<li>
+								<a
+									href="#mission"
+									class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800"
+									>Mission</a
+								>
+							</li>
+							<li>
+								<a
+									href="#values"
+									class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800"
+									>Corporate Values</a
+								>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a
+							href="#"
+							class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800"
+							>Products</a
+						>
+					</li>
+					<li>
+						<a
+							href="#services"
+							class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800"
+							>Services</a
+						>
+					</li>
+					<li>
+						<a
+							href="#news"
+							class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800"
+							>News</a
+						>
+					</li>
+					<li>
+						<a
+							href="#contact"
+							class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800"
+							>Contact Us</a
+						>
+					</li>
+				</ul>
+			</div>
+		</header>
+
+		<!-- Hero Section -->
+		<section
+			class="bg-red-500 dark:bg-red-700 text-white py-16 text-center"
+		>
+			<h2 class="text-4xl font-bold mb-4">
+				Welcome to Jetuxe Healthcare
+			</h2>
+			<p class="text-lg">Your partner in health and wellness.</p>
+		</section>
+
+		<!-- Content Sections -->
+		<section class="py-16">
+			<div class="container mx-auto px-4">
+				<h2 class="text-3xl font-bold mb-8 text-center">
+					Our Offerings
+				</h2>
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+					<div>
+						<h3 class="font-bold text-xl">Vision</h3>
+						<p>
+							To be a leading name in healthcare solutions
+							globally.
+						</p>
+					</div>
+					<div>
+						<h3 class="font-bold text-xl">Corporate Values</h3>
+						<p>
+							Integrity, Innovation, Customer Focus, Excellence.
+						</p>
+					</div>
+					<div>
+						<h3 class="font-bold text-xl">Mission</h3>
+						<p>
+							Providing innovative and reliable healthcare
+							products.
+						</p>
+					</div>
+					<div>
+						<h3 class="font-bold text-xl">Customer Satisfaction</h3>
+						<p>Your health, our priority.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Products Section -->
+		<section id="products" class="py-16 bg-gray-100 dark:bg-gray-800">
+			<div class="container mx-auto px-4">
+				<h2 class="text-3xl font-bold mb-8 text-center">
+					Our Products
+				</h2>
+				<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+					<div
+						class="border rounded-lg p-4 bg-white dark:bg-gray-700"
+					>
+						<img
+							src="https://via.placeholder.com/150"
+							alt="Product 1"
+							class="mx-auto mb-4"
+						/>
+						<h3 class="text-xl font-bold">Product 1</h3>
+						<p class="mb-4">
+							A brief description of Product 1 highlighting its
+							benefits.
+						</p>
+						<button
+							class="px-4 py-2 bg-blue-600 text-white rounded"
+						>
+							Learn More
+						</button>
+					</div>
+					<div
+						class="border rounded-lg p-4 bg-white dark:bg-gray-700"
+					>
+						<img
+							src="https://via.placeholder.com/150"
+							alt="Product 2"
+							class="mx-auto mb-4"
+						/>
+						<h3 class="text-xl font-bold">Product 2</h3>
+						<p class="mb-4">
+							A brief description of Product 2 highlighting its
+							benefits.
+						</p>
+						<button
+							class="px-4 py-2 bg-blue-600 text-white rounded"
+						>
+							Learn More
+						</button>
+					</div>
+					<div
+						class="border rounded-lg p-4 bg-white dark:bg-gray-700"
+					>
+						<img
+							src="https://via.placeholder.com/150"
+							alt="Product 3"
+							class="mx-auto mb-4"
+						/>
+						<h3 class="text-xl font-bold">Product 3</h3>
+						<p class="mb-4">
+							A brief description of Product 3 highlighting its
+							benefits.
+						</p>
+						<button
+							class="px-4 py-2 bg-blue-600 text-white rounded"
+						>
+							Learn More
+						</button>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Featured Section -->
+		<section class="bg-blue-100 dark:bg-blue-800 py-16">
+			<div class="container mx-auto px-4 text-center">
+				<h2 class="text-3xl font-bold mb-8">Featured Brands</h2>
+				<div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+					<div>
+						<img
+							src="https://via.placeholder.com/150"
+							alt="Brand"
+							class="mx-auto mb-2"
+						/>
+						<p>Brand Name</p>
+					</div>
+					<div>
+						<img
+							src="https://via.placeholder.com/150"
+							alt="Brand"
+							class="mx-auto mb-2"
+						/>
+						<p>Brand Name</p>
+					</div>
+				</div>
+				<button class="mt-4 px-6 py-2 bg-red-500 text-white rounded">
+					Know More
+				</button>
+			</div>
+		</section>
+
+		<!-- Contact Section -->
+		<section id="contact" class="py-16">
+			<div class="container mx-auto px-4">
+				<h2 class="text-3xl font-bold mb-8 text-center">Contact Us</h2>
+				<form class="max-w-lg mx-auto space-y-4">
+					<div>
+						<label for="name" class="block text-sm font-bold"
+							>Name</label
+						>
+						<input
+							type="text"
+							id="name"
+							placeholder="Your Name"
+							class="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded"
+						/>
+					</div>
+					<div>
+						<label for="email" class="block text-sm font-bold"
+							>Email</label
+						>
+						<input
+							type="email"
+							id="email"
+							placeholder="Your Email"
+							class="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded"
+						/>
+					</div>
+					<div>
+						<label for="message" class="block text-sm font-bold"
+							>Message</label
+						>
+						<textarea
+							id="message"
+							placeholder="Your Message"
+							class="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded"
+						></textarea>
+					</div>
+					<button
+						type="submit"
+						class="px-6 py-2 bg-blue-600 text-white rounded"
+					>
+						Send Message
+					</button>
+				</form>
+			</div>
+		</section>
+
+		<!-- Footer -->
+		<footer
+			class="bg-blue-600 dark:bg-gray-800 text-white py-4 text-center"
+		>
+			<p>&copy; 2025 Jetuxe Healthcare. All rights reserved.</p>
+		</footer>
+	</body>
+</html>
