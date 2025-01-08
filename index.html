@@ -1,231 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Jetuxe Healthcare</title>
-		<script src="https://cdn.tailwindcss.com"></script>
-		<link
-			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-		/>
-		<style>
-			/* Additional Styles */
-			.slider-container {
-				display: flex;
-				overflow-x: auto;
-				scroll-behavior: smooth;
-			}
-			.slider-item {
-				flex: 0 0 auto;
-				margin-right: 1rem;
-			}
-			.slider-container::-webkit-scrollbar {
-				display: none;
-			}
-			.dropdown:hover .dropdown-menu {
-				display: block;
-			}
-			.hidden-menu {
-				display: none;
-			}
-			@media (max-width: 768px) {
-				.hidden-menu {
-					display: block;
-				}
-				nav.md\:flex {
-					display: none;
-				}
-			}
-		</style>
-		<script>
-			// Dark mode toggle
-			function toggleDarkMode() {
-				const root = document.documentElement;
-				if (root.classList.contains("dark")) {
-					root.classList.remove("dark");
-					localStorage.setItem("theme", "light");
-				} else {
-					root.classList.add("dark");
-					localStorage.setItem("theme", "dark");
-				}
-			}
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jetuxe Healthcare</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <script>
+        // Dark mode toggle
+        function toggleDarkMode() {
+            const root = document.documentElement;
+            if (root.classList.contains("dark")) {
+                root.classList.remove("dark");
+                localStorage.setItem("theme", "light");
+            } else {
+                root.classList.add("dark");
+                localStorage.setItem("theme", "dark");
+            }
+        }
 
-			// Set initial theme based on localStorage
-			document.addEventListener("DOMContentLoaded", () => {
-				if (localStorage.getItem("theme") === "dark") {
-					document.documentElement.classList.add("dark");
-				}
-			});
-		</script>
-	</head>
-	<body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100">
-		<!-- Header -->
-		<header class="bg-blue-600 dark:bg-gray-800 text-white">
-			<div
-				class="container mx-auto px-4 py-4 flex justify-between items-center"
-			>
-				<h1 class="text-2xl font-bold">Jetuxe Healthcare</h1>
-				<nav class="hidden md:flex space-x-6">
-					<div class="relative group">
-						<a href="#" class="hover:underline">Home</a>
-					</div>
-					<div class="relative group">
-						<a href="#" class="hover:underline">About Us</a>
-						<ul
-							class="absolute left-0 mt-2 hidden bg-white dark:bg-gray-700 text-black dark:text-white group-hover:block shadow-lg"
-						>
-							<li>
-								<a
-									href="#vision"
-									class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800"
-									>Vision</a
-								>
-							</li>
-							<li>
-								<a
-									href="#mission"
-									class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800"
-									>Mission</a
-								>
-							</li>
-							<li>
-								<a
-									href="#values"
-									class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800"
-									>Corporate Values</a
-								>
-							</li>
-						</ul>
-					</div>
-					<div class="relative group">
-						<a href="#" class="hover:underline">Products</a>
-						<ul
-							class="absolute left-0 mt-2 hidden bg-white dark:bg-gray-700 text-black dark:text-white group-hover:block shadow-lg"
-						>
-							<li>
-								<a
-									href="#product1"
-									class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800"
-									>Product 1</a
-								>
-							</li>
-							<li>
-								<a
-									href="#product2"
-									class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800"
-									>Product 2</a
-								>
-							</li>
-							<li>
-								<a
-									href="#product3"
-									class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800"
-									>Product 3</a
-								>
-							</li>
-						</ul>
-					</div>
-					<div class="relative group">
-						<a href="#services" class="hover:underline">Services</a>
-					</div>
-					<div class="relative group">
-						<a href="#news" class="hover:underline">News</a>
-					</div>
-					<div class="relative group">
-						<a href="#contact" class="hover:underline"
-							>Contact Us</a
-						>
-					</div>
-				</nav>
-				<button
-					onclick="toggleDarkMode()"
-					class="p-2 bg-gray-200 dark:bg-gray-600 rounded-full"
-				>
-					<i class="fas fa-moon"></i>
-				</button>
-			</div>
-			<div class="block md:hidden">
-				<button
-					class="p-2 bg-gray-200 dark:bg-gray-600 rounded-full"
-					onclick="document.getElementById('mobile-menu').classList.toggle('hidden')"
-				>
-					<i class="fas fa-bars"></i>
-				</button>
-			</div>
-			<div
-				id="mobile-menu"
-				class="hidden md:hidden bg-white dark:bg-gray-700"
-			>
-				<ul class="space-y-2 py-2">
-					<li>
-						<a
-							href="#"
-							class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800"
-							>Home</a
-						>
-					</li>
-					<li class="relative">
-						<a
-							href="#"
-							class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800"
-							>About Us</a
-						>
-						<ul class="pl-4">
-							<li>
-								<a
-									href="#vision"
-									class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800"
-									>Vision</a
-								>
-							</li>
-							<li>
-								<a
-									href="#mission"
-									class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800"
-									>Mission</a
-								>
-							</li>
-							<li>
-								<a
-									href="#values"
-									class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800"
-									>Corporate Values</a
-								>
-							</li>
-						</ul>
-					</li>
-					<li>
-						<a
-							href="#"
-							class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800"
-							>Products</a
-						>
-					</li>
-					<li>
-						<a
-							href="#services"
-							class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800"
-							>Services</a
-						>
-					</li>
-					<li>
-						<a
-							href="#news"
-							class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800"
-							>News</a
-						>
-					</li>
-					<li>
-						<a
-							href="#contact"
-							class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800"
-							>Contact Us</a
-						>
-					</li>
-				</ul>
-			</div>
-		</header>
+        // Set initial theme based on localStorage
+        document.addEventListener("DOMContentLoaded", () => {
+            if (localStorage.getItem("theme") === "dark") {
+                document.documentElement.classList.add("dark");
+            }
+        });
+
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            document.getElementById("mobile-menu").classList.toggle("hidden");
+        }
+
+        // Toggle About Us submenu
+        function toggleSubmenu() {
+            document.getElementById("about-us-submenu").classList.toggle("hidden");
+        }
+    </script>
+</head>
+<body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100">
+    <!-- Header -->
+    <header class="bg-blue-600 dark:bg-gray-800 text-white">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <!-- Logo -->
+            <div class="flex items-center space-x-4">
+                <img src="logo.jpg" alt="Jetuxe Logo" class="w-10 h-10 rounded-full" />
+                <h1 class="text-2xl font-bold">Jetuxe Healthcare</h1>
+            </div>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex space-x-6">
+                <a href="#" class="hover:underline">Home</a>
+                <div class="relative group">
+                    <a href="#" class="hover:underline">About Us</a>
+                    <ul class="absolute left-0 mt-2 hidden bg-white dark:bg-gray-700 text-black dark:text-white group-hover:block shadow-lg">
+                        <li><a href="#vision" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800">Vision</a></li>
+                        <li><a href="#mission" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800">Mission</a></li>
+                        <li><a href="#values" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800">Corporate Values</a></li>
+                    </ul>
+                </div>
+                <a href="#products" class="hover:underline">Products</a>
+                <a href="#services" class="hover:underline">Services</a>
+                <a href="#news" class="hover:underline">News</a>
+                <a href="#contact" class="hover:underline">Contact Us</a>
+            </nav>
+
+            <!-- Dark Mode Toggle -->
+            <button onclick="toggleDarkMode()" class="p-2 bg-gray-200 dark:bg-gray-600 rounded-full">
+                <i class="fas fa-moon"></i>
+            </button>
+
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden p-2 bg-gray-200 dark:bg-gray-600 rounded-full" onclick="toggleMobileMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-700">
+            <ul class="space-y-2 py-2">
+                <li><a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800">Home</a></li>
+                <li>
+                    <button
+                        class="block w-full text-left px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800"
+                        onclick="toggleSubmenu()"
+                    >
+                        About Us
+                        <i class="fas fa-chevron-down float-right"></i>
+                    </button>
+                    <ul
+                        id="about-us-submenu"
+                        class="hidden space-y-2 pl-6 bg-gray-100 dark:bg-gray-800 text-black dark:text-white"
+                    >
+                        <li><a href="#vision" class="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700">Vision</a></li>
+                        <li><a href="#mission" class="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700">Mission</a></li>
+                        <li><a href="#values" class="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700">Corporate Values</a></li>
+                    </ul>
+                </li>
+                <li><a href="#products" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800">Products</a></li>
+                <li><a href="#services" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800">Services</a></li>
+                <li><a href="#news" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800">News</a></li>
+                <li><a href="#contact" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800">Contact Us</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Rest of the website content -->
+</body>
+</html>
+
 
 		<!-- Hero Section -->
 		<section
@@ -416,10 +301,114 @@
 		</section>
 
 		<!-- Footer -->
-		<footer
-			class="bg-blue-600 dark:bg-gray-800 text-white py-4 text-center"
-		>
-			<p>&copy; 2025 Jetuxe Healthcare. All rights reserved.</p>
+		<footer class="bg-blue-600 dark:bg-gray-800 text-white py-8">
+			<div class="container mx-auto px-4">
+				<!-- Logo and Description -->
+				<div class="flex flex-wrap justify-between items-center mb-6">
+					<div>
+						<h1 class="text-2xl font-bold mb-2">
+							Jetuxe Healthcare
+						</h1>
+						<p class="text-sm">
+							Committed to delivering top-notch healthcare
+							solutions that enhance lives and foster wellness.
+						</p>
+					</div>
+					<!-- Social Media Links -->
+					<div class="flex space-x-4">
+						<a
+							href="https://facebook.com"
+							target="_blank"
+							class="text-white hover:text-gray-300"
+						>
+							<i class="fab fa-facebook fa-lg"></i>
+						</a>
+						<a
+							href="https://twitter.com"
+							target="_blank"
+							class="text-white hover:text-gray-300"
+						>
+							<i class="fab fa-twitter fa-lg"></i>
+						</a>
+						<a
+							href="https://linkedin.com"
+							target="_blank"
+							class="text-white hover:text-gray-300"
+						>
+							<i class="fab fa-linkedin fa-lg"></i>
+						</a>
+						<a
+							href="https://instagram.com"
+							target="_blank"
+							class="text-white hover:text-gray-300"
+						>
+							<i class="fab fa-instagram fa-lg"></i>
+						</a>
+						<a
+							href="https://youtube.com"
+							target="_blank"
+							class="text-white hover:text-gray-300"
+						>
+							<i class="fab fa-youtube fa-lg"></i>
+						</a>
+					</div>
+				</div>
+
+				<!-- Quick Links -->
+				<div class="flex flex-wrap justify-between mb-6">
+					<div class="mb-4">
+						<h2 class="font-bold text-lg mb-2">Quick Links</h2>
+						<ul>
+							<li>
+								<a href="#" class="hover:underline">Home</a>
+							</li>
+							<li>
+								<a href="#about" class="hover:underline"
+									>About Us</a
+								>
+							</li>
+							<li>
+								<a href="#products" class="hover:underline"
+									>Products</a
+								>
+							</li>
+							<li>
+								<a href="#services" class="hover:underline"
+									>Services</a
+								>
+							</li>
+							<li>
+								<a href="#news" class="hover:underline">News</a>
+							</li>
+							<li>
+								<a href="#contact" class="hover:underline"
+									>Contact Us</a
+								>
+							</li>
+						</ul>
+					</div>
+					<div class="mb-4">
+						<h2 class="font-bold text-lg mb-2">Contact Us</h2>
+						<p>123 Jetuxe Street, Lagos, Nigeria</p>
+						<p>
+							Email:
+							<a
+								href="mailto:info@jetuxehealthcare.com"
+								class="hover:underline"
+								>info@jetuxehealthcare.com</a
+							>
+						</p>
+						<p>Phone: +234 123 456 7890</p>
+					</div>
+				</div>
+
+				<!-- Copyright -->
+				<div class="text-center">
+					<p class="text-sm">
+						&copy; 2025 Jetuxe Healthcare. All rights reserved.
+					</p>
+				</div>
+			</div>
 		</footer>
 	</body>
 </html>
