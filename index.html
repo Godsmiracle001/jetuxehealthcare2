@@ -10,6 +10,22 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
     <script>
+		//slider
+		document.addEventListener("DOMContentLoaded", () => {
+        const slider = document.querySelector(".slider");
+        const slides = document.querySelectorAll(".slider > div");
+        let currentIndex = 0;
+
+        const updateSlider = () => {
+            slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+        };
+
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % slides.length;
+            updateSlider();
+        }, 5000); // Change slide every 5 seconds
+    });
+
         // Dark mode toggle
         function toggleDarkMode() {
             const root = document.documentElement;
@@ -38,7 +54,19 @@
         function toggleSubmenu() {
             document.getElementById("about-us-submenu").classList.toggle("hidden");
         }
+		
     </script>
+	<style>
+        .slider {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+        width: 100%;
+    }
+
+    .slider > div {
+        min-width: 100%;
+    }
+    </style>
 </head>
 <body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100">
     <!-- Header -->
@@ -156,91 +184,59 @@
 		</section>
 
 		<!-- Products Section -->
-		<section id="products" class="py-16 bg-gray-100 dark:bg-gray-800">
-			<div class="container mx-auto px-4">
-				<h2 class="text-3xl font-bold mb-8 text-center">
-					Our Products
-				</h2>
-				<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-					<div
-						class="border rounded-lg p-4 bg-white dark:bg-gray-700"
-					>
-						<img
-							src="p1.jpeg"
-							alt="Product 1"
-							class="mx-auto mb-4"
-						/>
-						<h3 class="text-xl font-bold">MINDRAY BC 5000 HEMATOLOGY ANALYZER (5 PART) </h3>
-						<p class="mb-4">
-							A brief description of Product 1 highlighting its
-							benefits.
-						</p>
-						<button
-							class="px-4 py-2 bg-blue-600 text-white rounded"
-						>
-							Learn More
-						</button>
-					</div>
-					<div
-						class="border rounded-lg p-4 bg-white dark:bg-gray-700"
-					>
-						<img
-							src="p4.jpg"
-							alt="Product 2"
-							class="mx-auto mb-4"
-						/>
-						<h3 class="text-xl font-bold">MINDRAY BC 11 HEMATOLOGY ANALYZER (3 PART)</h3>
-						<p class="mb-4">
-							A brief description of Product 2 highlighting its
-							benefits.
-						</p>
-						<button
-							class="px-4 py-2 bg-blue-600 text-white rounded"
-						>
-							Learn More
-						</button>
-					</div>
-					<div
-						class="border rounded-lg p-4 bg-white dark:bg-gray-700"
-					>
-						<img
-							src="p3.jpeg"
-							alt="Product 3"
-							class="mx-auto mb-4"
-						/>
-						<h3 class="text-xl font-bold">MINDRAY BA88A SEMI AUTO CHEMISTRY</h3>
-						<p class="mb-4">
-							A brief description of Product 3 highlighting its
-							benefits.
-						</p>
-						<button
-							class="px-4 py-2 bg-blue-600 text-white rounded"
-						>
-							Learn More
-						</button>
-					</div>
-					<div
-						class="border rounded-lg p-4 bg-white dark:bg-gray-700"
-					>
-						<img
-							src="p2.jpeg"
-							alt="Product 4"
-							class="mx-auto mb-4"
-						/>
-						<h3 class="text-xl font-bold">MINDRAY BS 230 FULLY AUTOMATED CHEMISTRY ANALYZER</h3>
-						<p class="mb-4">
-							A brief description of Product 4 highlighting its
-							benefits.
-						</p>
-						<button
-							class="px-4 py-2 bg-blue-600 text-white rounded"
-						>
-							Learn More
-						</button>
-					</div>
-				</div>
-			</div>
-		</section>
+		<!-- Products Section -->
+<section id="products" class="py-16 bg-gray-100 dark:bg-gray-800">
+    <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold mb-8 text-center">
+            Our Products
+        </h2>
+        <div class="relative overflow-hidden max-w-3xl mx-auto">
+            <!-- Slider Images -->
+            <div class="slider flex">
+                <div class="w-full flex-shrink-0">
+                    <div class="border rounded-lg p-4 bg-white dark:bg-gray-700">
+                        <img src="p1.jpeg" alt="Product 1" class="mx-auto mb-4" />
+                        <h3 class="text-xl font-bold">MINDRAY BC 5000 HEMATOLOGY ANALYZER (5 PART)</h3>
+                        <p class="mb-4">A brief description of Product 1 highlighting its benefits.</p>
+                        <button class="px-4 py-2 bg-blue-600 text-white rounded">
+                            Learn More
+                        </button>
+                    </div>
+                </div>
+                <div class="w-full flex-shrink-0">
+                    <div class="border rounded-lg p-4 bg-white dark:bg-gray-700">
+                        <img src="p4.jpg" alt="Product 2" class="mx-auto mb-4" />
+                        <h3 class="text-xl font-bold">MINDRAY BC 11 HEMATOLOGY ANALYZER (3 PART)</h3>
+                        <p class="mb-4">A brief description of Product 2 highlighting its benefits.</p>
+                        <button class="px-4 py-2 bg-blue-600 text-white rounded">
+                            Learn More
+                        </button>
+                    </div>
+                </div>
+                <div class="w-full flex-shrink-0">
+                    <div class="border rounded-lg p-4 bg-white dark:bg-gray-700">
+                        <img src="p3.jpeg" alt="Product 3" class="mx-auto mb-4" />
+                        <h3 class="text-xl font-bold">MINDRAY BA88A SEMI AUTO CHEMISTRY</h3>
+                        <p class="mb-4">A brief description of Product 3 highlighting its benefits.</p>
+                        <button class="px-4 py-2 bg-blue-600 text-white rounded">
+                            Learn More
+                        </button>
+                    </div>
+                </div>
+                <div class="w-full flex-shrink-0">
+                    <div class="border rounded-lg p-4 bg-white dark:bg-gray-700">
+                        <img src="p2.jpeg" alt="Product 4" class="mx-auto mb-4" />
+                        <h3 class="text-xl font-bold">MINDRAY BS 230 FULLY AUTOMATED CHEMISTRY ANALYZER</h3>
+                        <p class="mb-4">A brief description of Product 4 highlighting its benefits.</p>
+                        <button class="px-4 py-2 bg-blue-600 text-white rounded">
+                            Learn More
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 		<!-- Featured Section -->
 		<section class="bg-blue-100 dark:bg-blue-800 py-16">
