@@ -46,15 +46,16 @@
         });
 
         // Mobile menu toggle
-        function toggleMobileMenu() {
-            document.getElementById("mobile-menu").classList.toggle("hidden");
-        }
+			function toggleMobileMenu() {
+				document
+					.getElementById("mobile-menu")
+					.classList.toggle("hidden");
+			}
 
-        // Toggle About Us submenu
-        function toggleSubmenu() {
-            document.getElementById("about-us-submenu").classList.toggle("hidden");
-        }
-		
+			// Toggle submenu
+			function toggleSubmenu(menuId) {
+				document.getElementById(menuId).classList.toggle("hidden");
+			}
     </script>
 	<style>
         .slider {
@@ -69,71 +70,229 @@
     </style>
 </head>
 <body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100">
-    <!-- Header -->
-    <header class="bg-blue-600 dark:bg-gray-800 text-white">
-        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <!-- Logo -->
-            <div class="flex items-center space-x-4">
-                <img src="logo.jpg" alt="Jetuxe Logo" class="w-10 h-10 rounded-full" />
-                <h1 class="text-2xl font-bold">Jetuxe Healthcare</h1>
-            </div>
+	<header class="bg-blue-600 dark:bg-gray-800 text-white">
+		<div
+			class="container mx-auto px-4 py-4 flex justify-between items-center"
+		>
+			<div class="flex items-center space-x-4">
+				<img
+					src="logo.jpg"
+					alt="Jetuxe Logo"
+					class="w-10 h-10 rounded-full"
+				/>
+				<h1 class="text-2xl font-bold">Jetuxe Healthcare</h1>
+			</div>
 
-            <!-- Desktop Nav -->
-            <nav class="hidden md:flex space-x-6">
-                <a href="#" class="hover:underline">Home</a>
-                <div class="relative group">
-                    <a href="#" class="hover:underline">About Us</a>
-                    <ul class="absolute left-0 mt-2 hidden bg-white dark:bg-gray-700 text-black dark:text-white group-hover:block shadow-lg">
-                        <li><a href="#vision" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800">Vision</a></li>
-                        <li><a href="#mission" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800">Mission</a></li>
-                        <li><a href="#values" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800">Corporate Values</a></li>
-                    </ul>
-                </div>
-                <a href="products.html" class="hover:underline">Products</a>
-                <a href="#services" class="hover:underline">Services</a>
-                <a href="#news" class="hover:underline">News</a>
-                <a href="#contact" class="hover:underline">Contact Us</a>
-            </nav>
+			<nav class="hidden md:flex space-x-6">
+				<a href="index.html" class="hover:underline">Home</a>
+				<div class="relative group">
+					<button
+						onclick="toggleSubmenu('about-us-submenu')"
+						class="hover:underline"
+					>
+						About Us
+					</button>
+					<ul
+						id="about-us-submenu"
+						class="absolute left-0 mt-2 hidden bg-white dark:bg-gray-700 text-black dark:text-white shadow-lg"
+					>
+						<li>
+							<a
+								href="#vision"
+								class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800"
+								>Vision</a
+							>
+						</li>
+						<li>
+							<a
+								href="#mission"
+								class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800"
+								>Mission</a
+							>
+						</li>
+						<li>
+							<a
+								href="#values"
+								class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800"
+								>Corporate Values</a
+							>
+						</li>
+					</ul>
+				</div>
+				<div class="relative group">
+					<button
+						onclick="toggleSubmenu('products-submenu')"
+						class="hover:underline"
+					>
+						Products
+					</button>
+					<ul
+						id="products-submenu"
+						class="absolute left-0 mt-2 hidden bg-white dark:bg-gray-700 text-black dark:text-white shadow-lg"
+					>
+						<li>
+							<a
+								href="ivd.html"
+								class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800"
+								>IVD</a
+							>
+						</li>
+						<li>
+							<a
+								href="non-ivd.html"
+								class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800"
+								>Non IVD</a
+							>
+						</li>
+						<li>
+							<a
+								href="hospital-equipment.html"
+								class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800"
+								>Hospital Equipment</a
+							>
+						</li>
+						<li>
+							<a
+								href="consumables.html"
+								class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800"
+								>Consumables</a
+							>
+						</li>
+					</ul>
+				</div>
+				<a href="#services" class="hover:underline">Services</a>
+				<a href="#news" class="hover:underline">News</a>
+				<a href="#contact" class="hover:underline">Contact Us</a>
+			</nav>
 
-            <!-- Dark Mode Toggle -->
-            <button onclick="toggleDarkMode()" class="p-2 bg-gray-200 dark:bg-gray-600 rounded-full">
-                <i class="fas fa-moon"></i>
-            </button>
+			<button
+				onclick="toggleDarkMode()"
+				class="p-2 bg-gray-200 dark:bg-gray-600 rounded-full"
+			>
+				<i class="fas fa-moon"></i>
+			</button>
 
-            <!-- Mobile Menu Button -->
-            <button class="md:hidden p-2 bg-gray-200 dark:bg-gray-600 rounded-full" onclick="toggleMobileMenu()">
-                <i class="fas fa-bars"></i>
-            </button>
-        </div>
+			<button
+				class="md:hidden p-2 bg-gray-200 dark:bg-gray-600 rounded-full"
+				onclick="toggleMobileMenu()"
+			>
+				<i class="fas fa-bars"></i>
+			</button>
+		</div>
 
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-700">
-            <ul class="space-y-2 py-2">
-                <li><a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800">Home</a></li>
-                <li>
-                    <button
-                        class="block w-full text-left px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800"
-                        onclick="toggleSubmenu()"
-                    >
-                        About Us
-                        <i class="fas fa-chevron-down float-right"></i>
-                    </button>
-                    <ul
-                        id="about-us-submenu"
-                        class="hidden space-y-2 pl-6 bg-gray-100 dark:bg-gray-800 text-black dark:text-white"
-                    >
-                        <li><a href="#vision" class="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700">Vision</a></li>
-                        <li><a href="#mission" class="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700">Mission</a></li>
-                        <li><a href="#values" class="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700">Corporate Values</a></li>
-                    </ul>
-                </li>
-                <li><a href="products.html" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800">Products</a></li>
-                <li><a href="#services" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800">Services</a></li>
-                <li><a href="#news" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800">News</a></li>
-                <li><a href="#contact" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800">Contact Us</a></li>
-            </ul>
-        </div>
-    </header>
+		<div
+			id="mobile-menu"
+			class="hidden md:hidden bg-white dark:bg-gray-700"
+		>
+			<ul class="space-y-2 py-2">
+				<li>
+					<a
+						href="index.html"
+						class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800"
+						>Home</a
+					>
+				</li>
+				<li>
+					<button
+						class="block w-full text-left px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800"
+						onclick="toggleSubmenu('mobile-about-us-submenu')"
+					>
+						About Us
+						<i class="fas fa-chevron-down float-right"></i>
+					</button>
+					<ul
+						id="mobile-about-us-submenu"
+						class="hidden space-y-2 pl-6 bg-gray-100 dark:bg-gray-800 text-black dark:text-white"
+					>
+						<li>
+							<a
+								href="#vision"
+								class="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700"
+								>Vision</a
+							>
+						</li>
+						<li>
+							<a
+								href="#mission"
+								class="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700"
+								>Mission</a
+							>
+						</li>
+						<li>
+							<a
+								href="#values"
+								class="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700"
+								>Corporate Values</a
+							>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<button
+						class="block w-full text-left px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800"
+						onclick="toggleSubmenu('mobile-products-submenu')"
+					>
+						Products
+						<i class="fas fa-chevron-down float-right"></i>
+					</button>
+					<ul
+						id="mobile-products-submenu"
+						class="hidden space-y-2 pl-6 bg-gray-100 dark:bg-gray-800 text-black dark:text-white"
+					>
+						<li>
+							<a
+								href="ivd.html"
+								class="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700"
+								>IVD</a
+							>
+						</li>
+						<li>
+							<a
+								href="non-ivd.html"
+								class="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700"
+								>Non IVD</a
+							>
+						</li>
+						<li>
+							<a
+								href="hospital-equipment.html"
+								class="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700"
+								>Hospital Equipment</a
+							>
+						</li>
+						<li>
+							<a
+								href="consumables.html"
+								class="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700"
+								>Consumables</a
+							>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a
+						href="#services"
+						class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800"
+						>Services</a
+					>
+				</li>
+				<li>
+					<a
+						href="#news"
+						class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800"
+						>News</a
+					>
+				</li>
+				<li>
+					<a
+						href="#contact"
+						class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800"
+						>Contact Us</a
+					>
+				</li>
+			</ul>
+		</div>
+	</header> 
 
     <!-- Rest of the website content -->
 </body>
