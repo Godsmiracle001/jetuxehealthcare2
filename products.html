@@ -54,11 +54,9 @@
 					.classList.toggle("hidden");
 			}
 
-			// Toggle About Us submenu
-			function toggleSubmenu() {
-				document
-					.getElementById("about-us-submenu")
-					.classList.toggle("hidden");
+			// Toggle submenu
+			function toggleSubmenu(menuId) {
+				document.getElementById(menuId).classList.toggle("hidden");
 			}
 		</script>
 		<style>
@@ -81,7 +79,7 @@
 			>
 				<div class="flex items-center space-x-4">
 					<img
-						src="logo.jpg"
+						src="logo.jpeg"
 						alt="Jetuxe Logo"
 						class="w-10 h-10 rounded-full"
 					/>
@@ -91,9 +89,15 @@
 				<nav class="hidden md:flex space-x-6">
 					<a href="index.html" class="hover:underline">Home</a>
 					<div class="relative group">
-						<a href="#" class="hover:underline">About Us</a>
+						<button
+							onclick="toggleSubmenu('about-us-submenu')"
+							class="hover:underline"
+						>
+							About Us
+						</button>
 						<ul
-							class="absolute left-0 mt-2 hidden bg-white dark:bg-gray-700 text-black dark:text-white group-hover:block shadow-lg"
+							id="about-us-submenu"
+							class="absolute left-0 mt-2 hidden bg-white dark:bg-gray-700 text-black dark:text-white shadow-lg"
 						>
 							<li>
 								<a
@@ -118,7 +122,47 @@
 							</li>
 						</ul>
 					</div>
-					<a href="products.html" class="hover:underline">Products</a>
+					<div class="relative group">
+						<button
+							onclick="toggleSubmenu('products-submenu')"
+							class="hover:underline"
+						>
+							Products
+						</button>
+						<ul
+							id="products-submenu"
+							class="absolute left-0 mt-2 hidden bg-white dark:bg-gray-700 text-black dark:text-white shadow-lg"
+						>
+							<li>
+								<a
+									href="ivd.html"
+									class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800"
+									>IVD</a
+								>
+							</li>
+							<li>
+								<a
+									href="non-ivd.html"
+									class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800"
+									>Non IVD</a
+								>
+							</li>
+							<li>
+								<a
+									href="hospital-equipment.html"
+									class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800"
+									>Hospital Equipment</a
+								>
+							</li>
+							<li>
+								<a
+									href="consumables.html"
+									class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800"
+									>Consumables</a
+								>
+							</li>
+						</ul>
+					</div>
 					<a href="#services" class="hover:underline">Services</a>
 					<a href="#news" class="hover:underline">News</a>
 					<a href="#contact" class="hover:underline">Contact Us</a>
@@ -154,13 +198,13 @@
 					<li>
 						<button
 							class="block w-full text-left px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800"
-							onclick="toggleSubmenu()"
+							onclick="toggleSubmenu('mobile-about-us-submenu')"
 						>
 							About Us
 							<i class="fas fa-chevron-down float-right"></i>
 						</button>
 						<ul
-							id="about-us-submenu"
+							id="mobile-about-us-submenu"
 							class="hidden space-y-2 pl-6 bg-gray-100 dark:bg-gray-800 text-black dark:text-white"
 						>
 							<li>
@@ -187,11 +231,46 @@
 						</ul>
 					</li>
 					<li>
-						<a
-							href="products.html"
-							class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800"
-							>Products</a
+						<button
+							class="block w-full text-left px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800"
+							onclick="toggleSubmenu('mobile-products-submenu')"
 						>
+							Products
+							<i class="fas fa-chevron-down float-right"></i>
+						</button>
+						<ul
+							id="mobile-products-submenu"
+							class="hidden space-y-2 pl-6 bg-gray-100 dark:bg-gray-800 text-black dark:text-white"
+						>
+							<li>
+								<a
+									href="ivd.html"
+									class="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700"
+									>IVD</a
+								>
+							</li>
+							<li>
+								<a
+									href="non-ivd.html"
+									class="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700"
+									>Non IVD</a
+								>
+							</li>
+							<li>
+								<a
+									href="hospital-equipment.html"
+									class="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700"
+									>Hospital Equipment</a
+								>
+							</li>
+							<li>
+								<a
+									href="consumables.html"
+									class="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700"
+									>Consumables</a
+								>
+							</li>
+						</ul>
 					</li>
 					<li>
 						<a
